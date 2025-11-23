@@ -1,0 +1,375 @@
+/* Base y Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Paleta de Colores: Rojo Coca-Cola, Marrón Café, Fondo Cremoso */
+    --color-primary: #C60C30; /* Rojo principal (Coca-Cola) */
+    --color-secondary: #4A2C2A; /* Marrón oscuro (Café) */
+    --color-accent: #FFD700; /* Dorado/Amarillo (Acento) */
+    --color-text: #333;
+    --color-light: #F8F7F3; /* Fondo suave */
+    --color-white: #ffffff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+}
+
+/* --- Header y Navegación --- */
+.header {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 25px;
+}
+
+.nav-menu a {
+    color: var(--color-text);
+    font-weight: 600;
+    transition: color 0.3s;
+    padding: 5px 0;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+/* Botones */
+.btn-primary, .btn-cta {
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: 2px solid var(--color-secondary);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.btn-cta {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-cta:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+}
+
+/* --- Sección Hero (Principal) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('background-image-placeholder.jpg'); /* *NOTA: Sustituye con tu imagen* */
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.hero h2 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Secciones Generales --- */
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1em;
+    color: #777;
+    margin-bottom: 50px;
+}
+
+/* --- Sección Menú --- */
+.menu {
+    background-color: var(--color-white);
+}
+
+.menu-category {
+    margin-bottom: 60px;
+    border-left: 5px solid var(--color-primary);
+    padding-left: 20px;
+}
+
+.menu-category h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.menu-item {
+    background-color: var(--color-light);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--color-secondary);
+}
+
+.menu-item h4 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.menu-item p {
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.2em;
+}
+
+/* --- Sección Sobre Nosotros --- */
+.about {
+    background-color: var(--color-light);
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.signature {
+    font-style: italic;
+    color: var(--color-secondary);
+    font-size: 1.2em;
+    margin-top: 30px;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 50px 0 20px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.footer-info, .footer-social {
+    padding: 20px;
+}
+
+.footer-info h3, .footer-social h3 {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    color: var(--color-accent);
+}
+
+.footer-social a {
+    color: var(--color-white);
+    margin: 0 10px;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--color-accent);
+}
+
+.footer-copy {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+
+/* --- Media Queries (Diseño Responsivo) --- */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Ajustar según la altura del header */
+        right: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        transform: translateY(-200%); /* Oculto por defecto */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+    }
+
+    .nav-menu li {
+        margin: 0;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 15px;
+        color: var(--color-text);
+    }
+    
+    .nav-menu li a.btn-cta {
+        border-radius: 0;
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .menu-item {
+        margin-bottom: 20px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* --- Estilos del Botón Flotante de WhatsApp --- */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Verde de WhatsApp */
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+.icon-whatsapp {
+    /* Ajuste para que el ícono (emoji) esté centrado */
+    display: block;
+    padding-top: 10px; 
+}
+
+/* Ajuste para móviles: más pequeño y menos invasivo */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 25px;
+        bottom: 15px;
+        right: 15px;
+    }
+    .icon-whatsapp {
+        padding-top: 7px;
+    }
+}

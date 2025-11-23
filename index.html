@@ -1,207 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>SmoothieSnack — Smoothies, Cafés y Snacks</title>
-  <meta name="description" content="Smoothies de coca cola y café, sándwiches calientitos, galletas y snacks. Pedido por WhatsApp y locales en tu fraccionamiento.">
-  <style>
-    :root{--accent:#ff6b6b;--dark:#222;--muted:#666}
-    *{box-sizing:border-box}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
-      line-height:1.4;margin:0;color:var(--dark);
-      background:url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=60') center/cover fixed;
-    }
-    header{background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);padding:28px 16px;text-align:center}
-    .container{max-width:960px;margin:0 auto;padding:20px}
-    h1{margin:0;font-size:clamp(24px,4vw,36px)}
-    p.lead{margin:8px 0 0;color:var(--muted)}
-    .hero-cta{margin-top:16px}
-    .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
-    .btn-primary{background:var(--dark);color:#fff}
-    .btn-wsp{background:#25D366;color:#fff}
-    nav{display:flex;gap:12px;justify-content:center;margin-top:16px}
-
-    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-    @media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
-
-    .card{background:rgba(255,255,255,0.85);backdrop-filter:blur(6px);border-radius:12px;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-    .product-title{font-weight:700;margin:6px 0}
-    .price{color:var(--accent);font-weight:700}
-
-    .section-title{display:flex;align-items:center;justify-content:space-between;margin:18px 0}
-    footer{padding:18px 16px;background:rgba(255,255,255,0.85);text-align:center;color:var(--muted);font-size:14px}
-
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;font-weight:600}
-    .note{font-size:13px;color:var(--muted)}
-    .menu-item{display:flex;flex-direction:column}
-    .img-placeholder{height:120px;border-radius:8px;background:linear-gradient(180deg,#fff,#eee);display:flex;align-items:center;justify-content:center;font-size:40px}
-    .two-col{display:grid;grid-template-columns:1fr;gap:12px}
-    @media(min-width:760px){.two-col{grid-template-columns:1fr 320px}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothie Fusion - Café, Coca-Cola y Más</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Smoothie Fusion: La mezcla perfecta de Coca-Cola, Café y más. Descubre nuestros smoothies únicos, sándwiches calientes y snacks deliciosos.">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>SmoothieSnack</h1>
-      <p class="lead">Smoothies únicos (sí, de Coca‑Cola y de café), sándwiches calientitos, galletas y snacks. Pedido rápido por WhatsApp.</p>
-      <div class="hero-cta">
-        <!-- Reemplaza +524421853678 por tu número -->
-        <a class="btn btn-wsp" href="https://wa.me/524421853678?text=Hola%20quiero%20hacer%20un%20pedido" target="_blank">Pedir por WhatsApp</a>
-      </div>
-      <nav>
-        <a href="#menu" class="pill">Ver menú</a>
-        <a href="#promos" class="pill">Promos</a>
-        <a href="#contacto" class="pill">Contacto</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container">
-    <section id="menu">
-      <div class="section-title">
-        <h2>Menú destacado</h2>
-        <span class="note">Los precios mostrados son de ejemplo. Actualízalos.</span>
-      </div>
-
-      <div class="two-col">
-        <div>
-          <h3>Smoothies</h3>
-          <div class="grid">
-            <div class="card menu-item">
-              <div class="img-placeholder">🥤</div>
-              <div class="product-title">Smoothie Coca‑Cola</div>
-              <div class="price">$35 MXN</div>
-              <div class="note">Refrescante, con toque de crema. Pídelo con o sin hielo.</div>
-            </div>
-
-            <div class="card menu-item">
-              <div class="img-placeholder">☕️</div>
-              <div class="product-title">Smoothie de Café</div>
-              <div class="price">$40 MXN</div>
-              <div class="note">Café frío, leche y un toque de azúcar. Energía instantánea.</div>
-            </div>
-          </div>
-
-          <h3 style="margin-top:16px">Sándwiches</h3>
-          <div class="grid">
-            <div class="card">
-              <div class="product-title">Sándwich Clásico</div>
-              <div class="price">$45 MXN</div>
-              <div class="note">Jamón, queso, mantequilla. Calentito y listo.</div>
-            </div>
-            <div class="card">
-              <div class="product-title">Sándwich X</div>
-              <div class="price">$55 MXN</div>
-              <div class="note">Pan artesanal con ingrediente especial.</div>
-            </div>
-          </div>
-
-          <h3 style="margin-top:16px">Galletas & Snacks</h3>
-          <div class="grid">
-            <div class="card">
-              <div class="product-title">Galleta casera</div>
-              <div class="price">$12 MXN</div>
-              <div class="note">Receta secreta, quedan crujientes.</div>
-            </div>
-            <div class="card">
-              <div class="product-title">Snack salado</div>
-              <div class="price">$15 MXN</div>
-              <div class="note">Variedad: papas, cacahuates, etc.</div>
-            </div>
-          </div>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Smoothie Fusion 🥤☕</h1>
+            <nav class="nav">
+                <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                    <li><a href="#contacto" class="btn-cta">¡Pide Ahora!</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <aside class="card">
-          <h3>Promos</h3>
-          <ul>
-            <li>Combo: Smoothie + Sándwich = $70</li>
-            <li>2 galletas por $20</li>
-            <li>Miércoles: 10% de descuento en snacks</li>
-          </ul>
-
-          <h3 style="margin-top:12px">Horarios</h3>
-          <p class="note">Lun - Vie: 8:00 - 19:00<br>Sáb: 9:00 - 15:00<br>Dom: cerrado</p>
-
-          <h3 style="margin-top:12px">Formas de pago</h3>
-          <p class="note">Efectivo • Transferencia • Mercado Pago (Point)</p>
-
-          <div style="margin-top:14px">
-            <a class="btn btn-primary" href="#contacto">Contacto / Pedidos</a>
-          </div>
-        </aside>
-      </div>
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h2>El Sabor Que No Esperabas.</h2>
+            <p>Descubre la **Smoothie Fusion**: la atrevida combinación de Café y Coca-Cola, junto a sándwiches calientitos, galletas frescas y los mejores snacks.</p>
+            <a href="#menu" class="btn-primary">Ver Nuestro Menú Único</a>
+        </div>
     </section>
 
-    <section id="promos" style="margin-top:26px">
-      <div class="section-title">
-        <h2>Promociones actuales</h2>
-        <span class="note">Actualízalas según tu rotación semanal.</span>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <strong>Combo desayuno</strong>
-          <p class="note">Smoothie de café + galleta grande = $45</p>
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Nuestra Fusión de Sabores</h2>
+            <p class="section-subtitle">Lo más loco, lo más delicioso.</p>
+
+            <div class="menu-category">
+                <h3>🥤 Smoothies de Autor (Coca-Cola & Café)</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>Fusión de Medianoche</h4>
+                        <p>Smoothie helado con un toque intenso de café espresso y la efervescencia de Coca-Cola. ¡Despertar asegurado!</p>
+                        <span class="price">Desde $5.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Vainilla Cola-Mocha</h4>
+                        <p>La combinación de Coca-Cola, vainilla cremosa y una base suave de café. Dulce, refrescante y con energía.</p>
+                        <span class="price">Desde $6.00</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Menta Kick</h4>
+                        <p>Coca-Cola, un chorrito de café y un toque de menta fresca. El sabor más sorprendente para un día caluroso.</p>
+                        <span class="price">Desde $5.75</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h3>🥪 Sándwiches Calientitos y Snacks</h3>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <h4>Grilled Cheese Clásico</h4>
+                        <p>Queso fundido en pan artesanal, perfectamente dorado. El acompañamiento ideal.</p>
+                        <span class="price">$4.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Galleta Choco-Chip XXL</h4>
+                        <p>Horneadas al momento, gigantes y con doble de chispas de chocolate. ¡Imperdibles!</p>
+                        <span class="price">$2.50</span>
+                    </div>
+                    <div class="menu-item">
+                        <h4>Mix de Snacks Premium</h4>
+                        <p>Una selección de los mejores snacks (papas, nueces, fruta deshidratada) para llevar.</p>
+                        <span class="price">$3.00</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <strong>Promo para llevar</strong>
-          <p class="note">Lleva 3 snacks y paga 2.</p>
-        </div>
-        <div class="card">
-          <strong>Oferta fraccionamiento</strong>
-          <p class="note">Envío gratis dentro del fraccionamiento (min $50)</p>
-        </div>
-      </div>
     </section>
 
-    <section id="contacto" style="margin-top:26px">
-      <div class="section-title">
-        <h2>Contacto</h2>
-        <span class="note">Pide por WhatsApp o deja tus datos aquí.</span>
-      </div>
-
-      <div class="grid">
-        <div class="card">
-          <h3>Pedir por WhatsApp</h3>
-          <p class="note">Haz clic y envía un mensaje rápido. Reemplaza el número en el botón si lo necesitas.</p>
-          <p style="margin-top:10px">
-            <a class="btn btn-wsp" href="https://wa.me/524421853678?text=Hola%20quiero%20hacer%20un%20pedido">WhatsApp: +524421853678</a>
-          </p>
-
-          <h3 style="margin-top:12px">Formulario rápido</h3>
-          <form onsubmit="alert('Copia este formulario a Google Sites o conéctalo a tu servicio de email');return false;">
-            <label style="display:block;margin-bottom:8px">Nombre<br><input style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd" required></label>
-            <label style="display:block;margin-bottom:8px">Pedido<br><input style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd" required></label>
-            <label style="display:block;margin-bottom:8px">Dirección (opcional)<br><input style="width:100%;padding:8px;border-radius:6px;border:1px solid #ddd"></label>
-            <button class="btn btn-primary" style="margin-top:8px">Enviar</button>
-          </form>
+    <section id="sobre-nosotros" class="about">
+        <div class="container">
+            <h2 class="section-title">¿Por Qué Smoothie Fusion?</h2>
+            <p>Nacimos de una idea audaz: llevar la familiaridad de la Coca-Cola y la energía del café a un nuevo nivel. No somos una cafetería tradicional, ¡somos el lugar para probar algo **nuevo y electrizante**! Nuestro compromiso es ofrecer productos de la más alta calidad y un servicio inolvidable, todo servido con una sonrisa.</p>
+            <p class="signature">**"La vida es demasiado corta para los sabores aburridos."**</p>
         </div>
-
-        <div class="card">
-          <h3>Ubicación</h3>
-          <p class="note">Fraccionamiento — zona local.</p>
-
-          <h3 style="margin-top:12px">Correo</h3>
-          <p class="note">pedidosrapidoscdmarques@gmail.com</p>
-
-          <h3 style="margin-top:12px">Redes</h3>
-          <p class="note">Instagram • Facebook (Enlaza aquí tus perfiles)</p>
-
-          <h3 style="margin-top:12px">Notas</h3>
-          <ul>
-            <li class="note">Cambia los precios si lo necesitas.</li>
-            <li class="note">Sube fotos reales de tus productos para mejorar ventas.</li>
-          </ul>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="container">
-      <div>© SmoothieSnack — Hecho con ❤️. Reemplaza este texto con tu nombre o razón social.</div>
-    </div>
-  </footer>
+    <footer id="contacto" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>¡Estamos Listos Para Ti!</h3>
+                    <p>📍 Encuéntranos en: [Tu Dirección o Ubicación Aquí]</p>
+		    <p>📞 Llámanos: <a href="tel:+524421853678">442 185 3678</a></p>
+                    <p>📧 Escríbenos: [Tu Correo Electrónico]</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Síguenos</h3>
+                    <a href="#" target="_blank">Instagram</a> | 
+                    <a href="#" target="_blank">Facebook</a> | 
+                    <a href="#" target="_blank">TikTok</a>
+                </div>
+            </div>
+            <div class="footer-copy">
+                &copy; 2025 Smoothie Fusion. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+<a href="https://wa.me/5214421853678?text=Hola,%20estoy%20interesado%20en%20sus%20Smoothies%20de%20Fusión!" class="whatsapp-btn" target="_blank" aria-label="Contactar por WhatsApp">
+        <span class="icon-whatsapp">💬</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
+    <script src="script.js"></script>
 </body>
 </html>
