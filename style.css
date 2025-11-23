@@ -6,12 +6,12 @@
 }
 
 :root {
-    /* Paleta de Colores: Rojo Coca-Cola, Marrón Café, Fondo Cremoso */
-    --color-primary: #C60C30; /* Rojo principal (Coca-Cola) */
-    --color-secondary: #4A2C2A; /* Marrón oscuro (Café) */
-    --color-accent: #FFD700; /* Dorado/Amarillo (Acento) */
+    /* Paleta de Colores */
+    --color-primary: #C60C30; /* Rojo Coca-Cola */
+    --color-secondary: #4A2C2A; /* Marrón Café */
+    --color-accent: #FFD700; /* Dorado */
     --color-text: #333;
-    --color-light: #F8F7F3; /* Fondo suave */
+    --color-light: #F8F7F3; 
     --color-white: #ffffff;
 }
 
@@ -33,13 +33,31 @@ a {
     color: var(--color-primary);
 }
 
-/* --- Header y Navegación --- */
+/* --- Header y Navegación (CAMBIOS NAVIDEÑOS FUERTES) --- */
 .header {
-    background-color: var(--color-white);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* Fondo blanco "Hielo" (ligeramente transparente) */
+    background-color: rgba(255, 255, 255, 0.90);
+    
+    /* Efecto borroso detrás (como vidrio empañado por el frío) */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    /* Borde inferior tipo "Cinta de Regalo" o "Bastón de Caramelo" */
+    border-bottom: 5px solid transparent;
+    border-image: repeating-linear-gradient(
+        45deg,
+        #C60C30,
+        #C60C30 10px,
+        #ffffff 10px,
+        #ffffff 20px
+    ) 1;
+
+    /* Sombra roja difusa (Resplandor Navideño) */
+    box-shadow: 0 5px 20px rgba(198, 12, 48, 0.15);
+
     position: sticky;
     top: 0;
-    z-index: 1002; /* Más alto que nieve y adornos */
+    z-index: 1002;
 }
 
 .header .container {
@@ -53,6 +71,8 @@ a {
     font-size: 1.8em;
     font-weight: 700;
     color: var(--color-primary);
+    /* Sombra de texto blanca (como nieve sobre las letras) */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-menu {
@@ -64,16 +84,32 @@ a {
     margin-left: 25px;
 }
 
+/* Estilo de los enlaces */
 .nav-menu a {
     color: var(--color-text);
     font-weight: 600;
-    transition: color 0.3s;
-    padding: 5px 0;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 20px;
+    position: relative;
 }
 
+/* Efecto al pasar el mouse (Hover) */
 .nav-menu a:hover {
     color: var(--color-primary);
+    background-color: rgba(198, 12, 48, 0.05); /* Fondo rojo muy suave */
 }
+
+/* AGREGADO: Copo de nieve al pasar el mouse */
+.nav-menu a:hover::before {
+    content: '❄'; /* Símbolo de nieve */
+    margin-right: 5px;
+    color: var(--color-primary);
+    animation: spin 4s linear infinite; /* Pequeña animación de giro */
+    display: inline-block;
+}
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 .nav-toggle {
     display: none;
@@ -84,7 +120,8 @@ a {
     color: var(--color-primary);
 }
 
-/* Botones */
+/* --- Resto de Estilos (Sin cambios mayores) --- */
+
 .btn-primary, .btn-cta {
     display: inline-block;
     padding: 10px 25px;
@@ -117,9 +154,7 @@ a {
     border-color: var(--color-secondary);
 }
 
-/* --- Sección Hero (Principal) --- */
 .hero {
-    /* **CAMBIO CLAVE:** Gradiente mucho más oscuro para que la nieve y el texto blanco resalten */
     background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('background-image-placeholder.png'); 
     background-size: cover;
     background-position: center;
@@ -144,10 +179,7 @@ a {
     margin-right: auto;
 }
 
-/* --- Secciones Generales --- */
-section {
-    padding: 80px 0;
-}
+section { padding: 80px 0; }
 
 .section-title {
     font-size: 2.5em;
@@ -164,10 +196,7 @@ section {
     margin-bottom: 50px;
 }
 
-/* --- Sección Menú --- */
-.menu {
-    background-color: var(--color-white);
-}
+.menu { background-color: var(--color-white); }
 
 .menu-category {
     margin-bottom: 60px;
@@ -214,7 +243,6 @@ section {
     font-size: 1.2em;
 }
 
-/* --- Sección Sobre Nosotros --- */
 .about {
     background-color: var(--color-light);
     text-align: center;
@@ -234,7 +262,6 @@ section {
     margin-top: 30px;
 }
 
-/* --- Footer --- */
 .footer {
     background-color: var(--color-secondary);
     color: var(--color-white);
@@ -249,9 +276,7 @@ section {
     text-align: center;
 }
 
-.footer-info, .footer-social {
-    padding: 20px;
-}
+.footer-info, .footer-social { padding: 20px; }
 
 .footer-info h3, .footer-social h3 {
     font-size: 1.4em;
@@ -266,9 +291,7 @@ section {
     transition: color 0.3s;
 }
 
-.footer-social a:hover {
-    color: var(--color-accent);
-}
+.footer-social a:hover { color: var(--color-accent); }
 
 .footer-copy {
     text-align: center;
@@ -278,61 +301,35 @@ section {
     color: #ccc;
 }
 
-
-/* --- Media Queries (Diseño Responsivo) --- */
+/* Responsivo */
 @media (max-width: 768px) {
-    .nav-toggle {
-        display: block;
-    }
-
+    .nav-toggle { display: block; }
     .nav-menu {
         flex-direction: column;
         position: absolute;
         top: 60px; 
         right: 0;
         width: 100%;
-        background-color: var(--color-white);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
         box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         transform: translateY(-200%); 
         transition: transform 0.3s ease-in-out;
     }
-
-    .nav-menu.active {
-        transform: translateY(0);
-    }
-
-    .nav-menu li {
-        margin: 0;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-menu li a {
-        display: block;
-        padding: 15px;
-        color: var(--color-text);
-    }
-    
+    .nav-menu.active { transform: translateY(0); }
+    .nav-menu li { margin: 0; text-align: center; border-bottom: 1px solid #eee; }
+    .nav-menu li a { display: block; padding: 15px; color: var(--color-text); }
     .nav-menu li a.btn-cta {
         border-radius: 0;
         background-color: var(--color-primary);
         color: var(--color-white);
     }
-
-    .hero h2 {
-        font-size: 2.5em;
-    }
-
-    .menu-item {
-        margin-bottom: 20px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+    .hero h2 { font-size: 2.5em; }
+    .menu-item { margin-bottom: 20px; }
+    .footer-content { flex-direction: column; text-align: center; }
 }
-/* --- Estilos de Botones Flotantes (General) --- */
+
+/* Botones Flotantes */
 .whatsapp-btn, .call-btn {
     position: fixed;
     right: 30px;
@@ -347,30 +344,11 @@ section {
     font-weight: 600;
     color: white; 
 }
+.whatsapp-btn { bottom: 30px; background-color: #25D366; }
+.call-btn { bottom: 100px; background-color: var(--color-primary); }
+.whatsapp-btn:hover { background-color: #1FAF59; transform: scale(1.05); }
+.call-btn:hover { background-color: var(--color-secondary); transform: scale(1.05); }
 
-/* Posicionamiento específico */
-.whatsapp-btn {
-    bottom: 30px; 
-    background-color: #25D366; 
-}
-
-.call-btn {
-    bottom: 100px; 
-    background-color: var(--color-primary); 
-}
-
-/* Efectos Hover */
-.whatsapp-btn:hover {
-    background-color: #1FAF59; 
-    transform: scale(1.05);
-}
-
-.call-btn:hover {
-    background-color: var(--color-secondary); 
-    transform: scale(1.05);
-}
-
-/* Estilos de Iconografía y Texto */
 .icon-whatsapp, .icon-call {
     font-size: 25px;
     background-color: rgba(0, 0, 0, 0.1);
@@ -383,81 +361,28 @@ section {
     justify-content: center;
     align-items: center;
 }
+.text-whatsapp, .text-call { font-size: 1em; padding-left: 5px; white-space: nowrap; }
 
-.text-whatsapp, .text-call {
-    font-size: 1em;
-    padding-left: 5px;
-    white-space: nowrap;
-}
-
-
-/* --- Media Queries (Ajuste para móviles de Botones) --- */
 @media (max-width: 768px) {
-    
-    .whatsapp-btn, .call-btn {
-        padding: 0; 
-        width: 50px;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 50%;
-        justify-content: center;
-        right: 15px;
-    }
-    
-    .whatsapp-btn {
-        bottom: 15px; 
-    }
-
-    .call-btn {
-        bottom: 75px; 
-    }
-
-    .text-whatsapp, .text-call {
-        display: none; 
-    }
-
-    .icon-whatsapp, .icon-call {
-        font-size: 25px;
-        background-color: transparent;
-        margin: 0;
-        width: 50px;
-        height: 50px;
-    }
+    .whatsapp-btn, .call-btn { padding: 0; width: 50px; height: 50px; line-height: 50px; border-radius: 50%; justify-content: center; right: 15px; }
+    .whatsapp-btn { bottom: 15px; }
+    .call-btn { bottom: 75px; }
+    .text-whatsapp, .text-call { display: none; }
+    .icon-whatsapp, .icon-call { font-size: 25px; background-color: transparent; margin: 0; width: 50px; height: 50px; }
 }
 
-/* --- Efecto de Nieve --- */
+/* Nieve Animada */
 .snowflakes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; 
-    z-index: 999; 
-    overflow: hidden; 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; overflow: hidden; 
 }
-
 .snowflake {
-    color: #E0F7FA;
-    font-size: 1.2em; 
-    font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    position: absolute;
-    top: -10%; 
-    animation: snowfall linear infinite; 
+    color: #E0F7FA; font-size: 1.2em; font-family: Arial, sans-serif; text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    position: absolute; top: -10%; animation: snowfall linear infinite; 
 }
-
 @keyframes snowfall {
-    0% {
-        top: -10%;
-        transform: translateX(0);
-    }
-    100% {
-        top: 100%;
-        transform: translateX(50px); 
-    }
+    0% { top: -10%; transform: translateX(0); }
+    100% { top: 100%; transform: translateX(50px); }
 }
-
 .snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; }
 .snowflake:nth-child(2) { left: 15%; animation-duration: 14s; animation-delay: 2s; font-size: 1.2em; }
 .snowflake:nth-child(3) { left: 25%; animation-duration: 9s; animation-delay: 4s; }
@@ -471,112 +396,39 @@ section {
 .snowflake:nth-child(11) { left: 2%; animation-duration: 10.5s; animation-delay: 3s; font-size: 1.1em; }
 .snowflake:nth-child(12) { left: 90%; animation-duration: 12.5s; animation-delay: 7s; font-size: 0.95em; }
 
-/* --- LUCES DE NAVIDAD ANIMADAS --- */
-
+/* Luces Navideñas */
 .christmas-lights-container {
-    position: fixed;
-    top: 0;
-    width: 25px;
-    height: 100%;
-    z-index: 1000;
-    pointer-events: none;
-    overflow: hidden;
+    position: fixed; top: 0; width: 25px; height: 100%; z-index: 1000; pointer-events: none; overflow: hidden;
 }
-
 .christmas-lights-container.left { left: 0; }
 .christmas-lights-container.right { right: 0; }
-
 .christmas-lights-container::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    box-shadow: 
-        0 0 0 3px red,
-        0 50px 0 3px limegreen,
-        0 100px 0 3px deepskyblue,
-        0 150px 0 3px gold,
-        0 200px 0 3px violet,
-        0 250px 0 3px red,
-        0 300px 0 3px limegreen,
-        0 350px 0 3px deepskyblue,
-        0 400px 0 3px gold,
-        0 450px 0 3px violet,
-        0 500px 0 3px red,
-        0 550px 0 3px limegreen,
-        0 600px 0 3px deepskyblue,
-        0 650px 0 3px gold,
-        0 700px 0 3px violet,
-        0 750px 0 3px red,
-        0 800px 0 3px limegreen,
-        0 850px 0 3px deepskyblue,
-        0 900px 0 3px gold,
-        0 950px 0 3px violet,
-        0 1000px 0 3px red;
-    
-    animation: 
-        lights-blink 2s infinite alternate, 
-        lights-sway 5s infinite ease-in-out alternate;
+    content: ''; position: absolute; top: -50px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; border-radius: 50%;
+    box-shadow: 0 0 0 3px red, 0 50px 0 3px limegreen, 0 100px 0 3px deepskyblue, 0 150px 0 3px gold, 0 200px 0 3px violet, 
+                0 250px 0 3px red, 0 300px 0 3px limegreen, 0 350px 0 3px deepskyblue, 0 400px 0 3px gold, 0 450px 0 3px violet,
+                0 500px 0 3px red, 0 550px 0 3px limegreen, 0 600px 0 3px deepskyblue, 0 650px 0 3px gold, 0 700px 0 3px violet,
+                0 750px 0 3px red, 0 800px 0 3px limegreen, 0 850px 0 3px deepskyblue, 0 900px 0 3px gold, 0 950px 0 3px violet, 0 1000px 0 3px red;
+    animation: lights-blink 2s infinite alternate, lights-sway 5s infinite ease-in-out alternate;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
 }
-
 @keyframes lights-blink {
     0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
     50% { opacity: 0.6; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.4)); }
 }
-
 @keyframes lights-sway {
     0% { transform: translateX(-50%) rotate(0deg); }
     33% { transform: translateX(-45%) rotate(0.5deg); }
     66% { transform: translateX(-55%) rotate(-0.5deg); }
     100% { transform: translateX(-50%) rotate(0deg); }
 }
+.christmas-lights-container.right::before { animation-delay: 1s, 2.5s; }
+@media (max-width: 768px) { .christmas-lights-container { display: none; } }
 
-.christmas-lights-container.right::before {
-    animation-delay: 1s, 2.5s;
-}
-
+/* Santa Animado */
+.santa-container-left { position: fixed; left: 20px; bottom: 20px; z-index: 1003; }
+.santa-gif { width: 120px; height: auto; display: block; transition: transform 0.3s ease-in-out, filter 0.3s; filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3)); }
+.santa-container-left:hover .santa-gif { transform: scale(1.1) rotate(5deg); }
 @media (max-width: 768px) {
-    .christmas-lights-container {
-        display: none;
-    }
-}
-
-/* =========================================
-   NUEVO: Estilos para el Santa Claus Flotante
-   ========================================= */
-
-.santa-container-left {
-    position: fixed;
-    left: 20px;
-    bottom: 20px;
-    z-index: 1003;
-}
-
-.santa-gif {
-    width: 120px; /* Tamaño generoso para el GIF */
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease-in-out, filter 0.3s;
-    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
-}
-
-.santa-container-left:hover .santa-gif {
-    transform: scale(1.1) rotate(5deg);
-}
-
-/* Ajustes Responsivos para el Santa */
-@media (max-width: 768px) {
-    .santa-container-left {
-        left: 10px;
-        bottom: 15px;
-    }
-
-    .santa-gif {
-        width: 80px; /* Un poco más pequeño en móviles */
-    }
+    .santa-container-left { left: 10px; bottom: 15px; }
+    .santa-gif { width: 80px; }
 }
