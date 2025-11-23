@@ -39,7 +39,7 @@ a {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1002; /* CORREGIDO: Asegura que esté sobre la nieve y el reno */
 }
 
 .header .container {
@@ -119,7 +119,8 @@ a {
 
 /* --- Sección Hero (Principal) --- */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('background-image-placeholder.png'); /* *NOTA: Sustituye con tu imagen* */
+    /* CORRECCIÓN: Se usa .jpg y se suaviza el gradiente para que se vea la imagen */
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url('background-image-placeholder.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 70vh;
@@ -338,7 +339,7 @@ section {
     padding: 10px 20px 10px 10px; 
     border-radius: 50px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 1003; /* CORREGIDO: El z-index más alto */
     transition: transform 0.3s, background-color 0.3s;
     display: flex; 
     align-items: center;
@@ -423,5 +424,107 @@ section {
         margin: 0;
         width: 50px;
         height: 50px;
+    }
+}
+
+/* --- Efecto de Nieve (CORREGIDO: Contraste para fondo claro) --- */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite interactuar con lo de abajo */
+    z-index: 999; 
+    overflow: hidden; 
+}
+
+.snowflake {
+    /* CORREGIDO: Color azul pálido y sombra oscura fuerte para contraste */
+    color: #E0F7FA; 
+    font-size: 1.2em; 
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4); 
+    position: absolute;
+    top: -10%; 
+    animation: snowfall linear infinite; 
+}
+
+/* Animación de los copos de nieve */
+@keyframes snowfall {
+    0% {
+        top: -10%;
+        transform: translateX(0);
+    }
+    100% {
+        top: 100%;
+        transform: translateX(50px); 
+    }
+}
+
+/* Retraso y variación para cada copo */
+.snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; }
+.snowflake:nth-child(2) { left: 15%; animation-duration: 14s; animation-delay: 2s; font-size: 1.2em; }
+.snowflake:nth-child(3) { left: 25%; animation-duration: 9s; animation-delay: 4s; }
+.snowflake:nth-child(4) { left: 35%; animation-duration: 11s; animation-delay: 6s; font-size: 0.9em; }
+.snowflake:nth-child(5) { left: 45%; animation-duration: 13s; animation-delay: 8s; }
+.snowflake:nth-child(6) { left: 55%; animation-duration: 8s; animation-delay: 10s; font-size: 1.1em; }
+.snowflake:nth-child(7) { left: 65%; animation-duration: 12s; animation-delay: 12s; }
+.snowflake:nth-child(8) { left: 75%; animation-duration: 10s; animation-delay: 14s; font-size: 1.3em; }
+.snowflake:nth-child(9) { left: 85%; animation-duration: 9s; animation-delay: 16s; }
+.snowflake:nth-child(10) { left: 95%; animation-duration: 15s; animation-delay: 18s; font-size: 0.8em; }
+.snowflake:nth-child(11) { left: 2%; animation-duration: 10.5s; animation-delay: 3s; font-size: 1.1em; }
+.snowflake:nth-child(12) { left: 90%; animation-duration: 12.5s; animation-delay: 7s; font-size: 0.95em; }
+
+
+/* --- Reno Animado (CORREGIDO: Más grande y bajo) --- */
+.reindeer {
+    position: fixed;
+    /* CORREGIDO: Altura y tamaño aumentados para visibilidad */
+    top: 20px; 
+    left: -200px; 
+    width: 150px; 
+    height: 100px; 
+    /* El SVG es el mismo */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 70"><path fill="%238B4513" d="M60,20 C60,10 70,0 80,0 C90,0 100,10 100,20 C100,30 90,40 80,40 C70,40 60,30 60,20 Z" /><path fill="%238B4513" d="M30,30 C30,20 40,10 50,10 C60,10 70,20 70,30 C70,40 60,50 50,50 C40,50 30,40 30,30 Z" /><path fill="%238B4513" d="M0,40 C0,30 10,20 20,20 C30,20 40,30 40,40 C40,50 30,60 20,60 C10,60 0,50 0,40 Z" /><circle fill="%23FF0000" cx="70" cy="20" r="5" /><path fill="%235A2D16" d="M40,35 C40,30 45,25 50,25 C55,25 60,30 60,35 C60,40 55,45 50,45 C45,45 40,40 40,35 Z" /><path fill="%23A0522D" d="M20,60 L30,65 L50,65 L70,60 L80,55 L80,45 L70,40 L60,35 L40,35 L30,40 L20,45 L20,60 Z" transform="translate(0, -5)" /><path fill="%23CD853F" d="M65,15 C65,10 70,5 75,5 L75,0 L80,0 L80,5 C85,5 90,10 90,15 L90,20 L85,20 L85,15 C85,12 82,10 80,10 L78,10 C76,10 75,12 75,15 L75,20 L70,20 L70,15 C70,12 67,10 65,10 L63,10 C61,10 60,12 60,15 L60,20 L55,20 L55,15 C55,10 60,5 65,5 Z" transform="translate(0, -10)" /><rect fill="%238B4513" x="25" y="60" width="8" height="10" /><rect fill="%238B4513" x="60" y="55" width="8" height="10" /><rect fill="%238B4513" x="45" y="62" width="8" height="10" /><rect fill="%238B4513" x="75" y="50" width="8" height="10" /></svg>'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1001; /* Ligeramente más alto que la nieve */
+    pointer-events: none;
+    animation: reindeer-fly 18s linear infinite; 
+    animation-delay: 5s; 
+    opacity: 0; 
+}
+
+/* Animación del reno volador */
+@keyframes reindeer-fly {
+    0% {
+        left: -150px; 
+        opacity: 0;
+        transform: translateY(0);
+    }
+    5% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px); 
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        left: 100vw; 
+        opacity: 0; 
+        transform: translateY(0);
+    }
+}
+
+/* Pequeño ajuste para que el reno no esté muy alto en móviles */
+@media (max-width: 768px) {
+    .reindeer {
+        top: 20px; 
+        transform: scale(0.7); 
+        animation-duration: 15s; 
     }
 }
