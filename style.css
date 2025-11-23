@@ -391,7 +391,7 @@ section {
 }
 
 
-/* --- Media Queries (Ajuste para móviles) --- */
+/* --- Media Queries (Ajuste para móviles de Botones) --- */
 @media (max-width: 768px) {
     
     .whatsapp-btn, .call-btn {
@@ -425,7 +425,7 @@ section {
     }
 }
 
-/* --- Efecto de Nieve (Ahora se verá mejor con el fondo oscuro) --- */
+/* --- Efecto de Nieve --- */
 .snowflakes {
     position: fixed;
     top: 0;
@@ -438,16 +438,15 @@ section {
 }
 
 .snowflake {
-    color: #E0F7FA; /* Sigue siendo azul pálido */
+    color: #E0F7FA;
     font-size: 1.2em; 
     font-family: Arial, sans-serif;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7); /* Sombra blanca para que resalte más en el fondo oscuro */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
     position: absolute;
     top: -10%; 
     animation: snowfall linear infinite; 
 }
 
-/* Animación de los copos de nieve */
 @keyframes snowfall {
     0% {
         top: -10%;
@@ -459,7 +458,6 @@ section {
     }
 }
 
-/* Retraso y variación para cada copo */
 .snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; }
 .snowflake:nth-child(2) { left: 15%; animation-duration: 14s; animation-delay: 2s; font-size: 1.2em; }
 .snowflake:nth-child(3) { left: 25%; animation-duration: 9s; animation-delay: 4s; }
@@ -473,43 +471,36 @@ section {
 .snowflake:nth-child(11) { left: 2%; animation-duration: 10.5s; animation-delay: 3s; font-size: 1.1em; }
 .snowflake:nth-child(12) { left: 90%; animation-duration: 12.5s; animation-delay: 7s; font-size: 0.95em; }
 
-/* --- LUCES DE NAVIDAD ANIMADAS (NUEVO Y MEJORADO) --- */
+/* --- LUCES DE NAVIDAD ANIMADAS --- */
 
 .christmas-lights-container {
     position: fixed;
     top: 0;
-    width: 25px; /* Ancho del "cable" principal */
+    width: 25px;
     height: 100%;
-    z-index: 1000; /* Debajo del menú, pero encima de todo lo demás */
+    z-index: 1000;
     pointer-events: none;
-    overflow: hidden; /* Para asegurar que las luces no se salgan si se mueven mucho */
+    overflow: hidden;
 }
 
-.christmas-lights-container.left {
-    left: 0;
-}
+.christmas-lights-container.left { left: 0; }
+.christmas-lights-container.right { right: 0; }
 
-.christmas-lights-container.right {
-    right: 0;
-}
-
-/* Para crear las bombillas */
 .christmas-lights-container::before {
     content: '';
     position: absolute;
-    top: -50px; /* Empezar un poco fuera de la pantalla */
+    top: -50px;
     left: 50%;
     transform: translateX(-50%);
-    width: 8px; /* Tamaño de la bombilla */
+    width: 8px;
     height: 8px;
     border-radius: 50%;
-    /* Múltiples luces con diferentes colores y una sombra que simula el brillo */
     box-shadow: 
-        0 0 0 3px red,          /* Rojo */
-        0 50px 0 3px limegreen,  /* Verde */
-        0 100px 0 3px deepskyblue, /* Azul */
-        0 150px 0 3px gold,     /* Dorado */
-        0 200px 0 3px violet,   /* Violeta */
+        0 0 0 3px red,
+        0 50px 0 3px limegreen,
+        0 100px 0 3px deepskyblue,
+        0 150px 0 3px gold,
+        0 200px 0 3px violet,
         0 250px 0 3px red,
         0 300px 0 3px limegreen,
         0 350px 0 3px deepskyblue,
@@ -525,22 +516,19 @@ section {
         0 850px 0 3px deepskyblue,
         0 900px 0 3px gold,
         0 950px 0 3px violet,
-        0 1000px 0 3px red; /* Repetir hasta cubrir la altura */
+        0 1000px 0 3px red;
     
-    /* Animaciones: Parpadeo y Balanceo */
     animation: 
         lights-blink 2s infinite alternate, 
         lights-sway 5s infinite ease-in-out alternate;
-    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); /* Efecto de brillo general */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
 }
 
-/* Animación de Parpadeo */
 @keyframes lights-blink {
     0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
     50% { opacity: 0.6; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.4)); }
 }
 
-/* Animación de Balanceo Suave */
 @keyframes lights-sway {
     0% { transform: translateX(-50%) rotate(0deg); }
     33% { transform: translateX(-45%) rotate(0.5deg); }
@@ -548,16 +536,47 @@ section {
     100% { transform: translateX(-50%) rotate(0deg); }
 }
 
-/* Diferenciar las animaciones de los lados para que no parpadeen/balanceen al mismo tiempo */
 .christmas-lights-container.right::before {
-    animation-delay: 
-        1s, /* Parpadeo con 1 segundo de retraso */
-        2.5s; /* Balanceo con 2.5 segundos de retraso */
+    animation-delay: 1s, 2.5s;
 }
 
-/* Media Query para ocultar las luces en pantallas pequeñas */
 @media (max-width: 768px) {
     .christmas-lights-container {
         display: none;
+    }
+}
+
+/* =========================================
+   NUEVO: Estilos para el Santa Claus Flotante
+   ========================================= */
+
+.santa-container-left {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 1003;
+}
+
+.santa-gif {
+    width: 120px; /* Tamaño generoso para el GIF */
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out, filter 0.3s;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+.santa-container-left:hover .santa-gif {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Ajustes Responsivos para el Santa */
+@media (max-width: 768px) {
+    .santa-container-left {
+        left: 10px;
+        bottom: 15px;
+    }
+
+    .santa-gif {
+        width: 80px; /* Un poco más pequeño en móviles */
     }
 }
