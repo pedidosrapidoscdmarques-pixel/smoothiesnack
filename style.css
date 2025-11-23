@@ -331,45 +331,97 @@ section {
         text-align: center;
     }
 }
-/* --- Estilos del Botón Flotante de WhatsApp --- */
-.whatsapp-btn {
+/* --- Estilos de Botones Flotantes (General) --- */
+.whatsapp-btn, .call-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366; /* Verde de WhatsApp */
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 60px;
-    font-size: 30px;
+    right: 30px;
+    padding: 10px 20px 10px 10px; 
+    border-radius: 50px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s, background-color 0.3s;
+    display: flex; 
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+    color: white; /* Color del texto en ambos */
 }
 
+/* Posicionamiento específico */
+.whatsapp-btn {
+    bottom: 30px; /* Posición más baja */
+    background-color: #25D366; /* Verde de WhatsApp */
+}
+
+.call-btn {
+    bottom: 100px; /* Posicionado encima del botón de WhatsApp (30px + 40px de espacio) */
+    background-color: var(--color-primary); /* Rojo de Coca-Cola/Branding */
+}
+
+/* Efectos Hover */
 .whatsapp-btn:hover {
-    transform: scale(1.1);
+    background-color: #1FAF59; 
+    transform: scale(1.05);
 }
 
-.icon-whatsapp {
-    /* Ajuste para que el ícono (emoji) esté centrado */
-    display: block;
-    padding-top: 10px; 
+.call-btn:hover {
+    background-color: var(--color-secondary); /* Marrón Café */
+    transform: scale(1.05);
 }
 
-/* Ajuste para móviles: más pequeño y menos invasivo */
+/* Estilos de Iconografía y Texto */
+.icon-whatsapp, .icon-call {
+    /* Estilo del ícono */
+    font-size: 25px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-whatsapp, .text-call {
+    /* Estilo del texto */
+    font-size: 1em;
+    padding-left: 5px;
+    white-space: nowrap;
+}
+
+
+/* --- Media Queries (Ajuste para móviles) --- */
 @media (max-width: 768px) {
-    .whatsapp-btn {
+    
+    .whatsapp-btn, .call-btn {
+        padding: 0; 
         width: 50px;
         height: 50px;
         line-height: 50px;
-        font-size: 25px;
-        bottom: 15px;
+        border-radius: 50%;
+        justify-content: center;
         right: 15px;
     }
-    .icon-whatsapp {
-        padding-top: 7px;
+    
+    .whatsapp-btn {
+        bottom: 15px; /* Más abajo */
+    }
+
+    .call-btn {
+        bottom: 75px; /* Arriba del WhatsApp (15px + 40px de espacio) */
+    }
+
+    .text-whatsapp, .text-call {
+        display: none; /* Ocultamos el texto en pantallas pequeñas */
+    }
+
+    .icon-whatsapp, .icon-call {
+        font-size: 25px;
+        background-color: transparent;
+        margin: 0;
+        width: 50px;
+        height: 50px;
     }
 }
