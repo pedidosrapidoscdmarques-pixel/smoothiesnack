@@ -67,7 +67,7 @@ a {
     padding: 15px 20px;
 }
 
-/* INICIO DEL CAMBIO: Estilos para el logo y el texto */
+/* --- INICIO DE AJUSTES DE LOGO Y TEXTO --- */
 .logo-group {
     display: flex; /* Para alinear imagen y texto */
     align-items: center;
@@ -75,22 +75,20 @@ a {
 }
 
 .logo-img {
-    height: 60px; /* Tamaño del logo en desktop */
+    height: 90px; /* Tamaño del logo en desktop (AUMENTADO) */
     width: auto;
     margin-right: 10px; /* Espacio entre imagen y texto */
 }
 
 .logo-text {
-    font-size: 1.6em; /* Tamaño ajustado para el nombre */
+    font-size: 1.8em; /* Tamaño visible del texto */
     font-weight: 700;
-    color: var(--color-primary);
-    /* Sombra de texto blanca (como nieve sobre las letras) */
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: var(--color-secondary); /* Color del café para contraste */
+    /* Sombra de texto sutil */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5); 
     line-height: 1; 
 }
-/* FIN DEL CAMBIO */
-
-/* ELIMINADO: Se removieron los estilos anteriores del .logo que ya no existe como h1. */
+/* --- FIN DE AJUSTES DE LOGO Y TEXTO --- */
 
 .nav-menu {
     list-style: none;
@@ -174,8 +172,7 @@ a {
 /* INICIO DEL CAMBIO: Fondo Hero Corregido */
 .hero {
     /* Nuevo fondo de pastelería, siguiendo el estilo del ejemplo */
-    /* RUTA CORREGIDA: 'background-image-placeholder.jpg' */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('background-image-placeholder.jpg'); 
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('bakery-hero-background.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 70vh;
@@ -324,15 +321,14 @@ section { padding: 80px 0; }
 
 /* Responsivo */
 @media (max-width: 768px) {
-    /* INICIO DEL CAMBIO: Ajuste de logo y texto en móviles */
+    /* AJUSTE DE LOGO Y TEXTO EN MÓVILES */
     .logo-img {
-        height: 40px; /* Tamaño más pequeño para móviles */
+        height: 50px; /* Tamaño más grande para móviles */
         margin-right: 5px;
     }
     .logo-text {
-        font-size: 1.2em; /* Texto más pequeño en móviles */
+        font-size: 1.5em; /* Texto más pequeño en móviles */
     }
-    /* FIN DEL CAMBIO */
 
     .nav-toggle { display: block; }
     .nav-menu {
@@ -360,7 +356,7 @@ section { padding: 80px 0; }
     .footer-content { flex-direction: column; text-align: center; }
 }
 
-/* Botones Flotantes */
+/* --- BOTONES FLOTANTES Y AJUSTES DE ICONOS --- */
 .whatsapp-btn, .call-btn {
     position: fixed;
     right: 30px;
@@ -381,7 +377,7 @@ section { padding: 80px 0; }
 .call-btn:hover { background-color: var(--color-secondary); transform: scale(1.05); }
 
 .icon-whatsapp, .icon-call {
-    font-size: 25px;
+    font-size: 20px; /* Tamaño ajustado para Font Awesome */
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     width: 40px;
@@ -401,6 +397,8 @@ section { padding: 80px 0; }
     .text-whatsapp, .text-call { display: none; }
     .icon-whatsapp, .icon-call { font-size: 25px; background-color: transparent; margin: 0; width: 50px; height: 50px; }
 }
+/* --- FIN DE BOTONES FLOTANTES Y AJUSTES DE ICONOS --- */
+
 
 /* Nieve Animada */
 .snowflakes {
