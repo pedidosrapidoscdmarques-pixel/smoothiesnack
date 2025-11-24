@@ -302,14 +302,31 @@ section { padding: 80px 0; }
     color: var(--color-accent);
 }
 
-.footer-social a {
-    color: var(--color-white);
-    margin: 0 10px;
-    font-weight: 600;
-    transition: color 0.3s;
+/* INICIO: AJUSTES PARA ICONOS DE REDES SOCIALES (NUEVOS ESTILOS) */
+.footer-social { 
+    padding: 20px;
+    display: flex; /* Usar Flexbox para alinear los iconos */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center;
+    gap: 20px; /* Espaciado entre cada icono */
 }
 
-.footer-social a:hover { color: var(--color-accent); }
+.footer-social a {
+    color: var(--color-white); /* Color inicial: Blanco */
+    transition: all 0.3s;
+    font-size: 1.8em; /* Tamaño visible de los iconos */
+    padding: 8px; /* Espacio alrededor del icono para el hover */
+    border-radius: 50%; /* Forma circular para el efecto hover */
+    line-height: 1; /* Asegura el centrado del icono dentro del círculo */
+}
+
+/* Efecto Hover: Más vistoso y profesional */
+.footer-social a:hover { 
+    color: var(--color-primary); /* Icono cambia a Rojo Coca-Cola */
+    background-color: var(--color-light); /* Fondo cambia a color crema/claro */
+    transform: translateY(-3px) scale(1.1); /* Efecto de "levantamiento" y zoom */
+}
+/* FIN: AJUSTES PARA ICONOS DE REDES SOCIALES (NUEVOS ESTILOS) */
 
 .footer-copy {
     text-align: center;
