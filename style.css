@@ -171,8 +171,8 @@ a {
 
 /* INICIO DEL CAMBIO: Fondo Hero Corregido */
 .hero {
-    /* Nuevo fondo de pastelería, siguiendo el estilo del ejemplo */
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('bakery-hero-background.jpg'); 
+    /* Fondo corregido: Usamos 'background-image-placeholder.jpg' y ajustamos la opacidad del gradiente */
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('background-image-placeholder.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 70vh;
