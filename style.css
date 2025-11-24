@@ -67,13 +67,30 @@ a {
     padding: 15px 20px;
 }
 
-.logo {
-    font-size: 1.8em;
+/* INICIO DEL CAMBIO: Estilos para el logo y el texto */
+.logo-group {
+    display: flex; /* Para alinear imagen y texto */
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 60px; /* Tamaño del logo en desktop */
+    width: auto;
+    margin-right: 10px; /* Espacio entre imagen y texto */
+}
+
+.logo-text {
+    font-size: 1.6em; /* Tamaño ajustado para el nombre */
     font-weight: 700;
     color: var(--color-primary);
     /* Sombra de texto blanca (como nieve sobre las letras) */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    line-height: 1; 
 }
+/* FIN DEL CAMBIO */
+
+/* ELIMINADO: Se removieron los estilos anteriores del .logo que ya no existe como h1. */
 
 .nav-menu {
     list-style: none;
@@ -154,8 +171,11 @@ a {
     border-color: var(--color-secondary);
 }
 
+/* INICIO DEL CAMBIO: Fondo Hero Corregido */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('background-image-placeholder.png'); 
+    /* Nuevo fondo de pastelería, siguiendo el estilo del ejemplo */
+    /* RUTA CORREGIDA: 'background-image-placeholder.jpg' */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('background-image-placeholder.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 70vh;
@@ -164,6 +184,7 @@ a {
     text-align: center;
     color: var(--color-white);
 }
+/* FIN DEL CAMBIO */
 
 .hero h2 {
     font-size: 3.5em;
@@ -303,6 +324,16 @@ section { padding: 80px 0; }
 
 /* Responsivo */
 @media (max-width: 768px) {
+    /* INICIO DEL CAMBIO: Ajuste de logo y texto en móviles */
+    .logo-img {
+        height: 40px; /* Tamaño más pequeño para móviles */
+        margin-right: 5px;
+    }
+    .logo-text {
+        font-size: 1.2em; /* Texto más pequeño en móviles */
+    }
+    /* FIN DEL CAMBIO */
+
     .nav-toggle { display: block; }
     .nav-menu {
         flex-direction: column;
